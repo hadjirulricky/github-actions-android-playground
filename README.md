@@ -1,7 +1,9 @@
 # Github Actions Android Playground
 [![CI Status](https://github.com/hadjirulricky/github-actions-android-playground/workflows/CI/badge.svg)](https://github.com/hadjirulricky/github-actions-android-playground)
 
-This repository shows an example on how you can integrate [GitHub Actions](https://github.com/features/actions) in your Android Project.
+This repository shows an example on how you can integrate [GitHub Actions](https://github.com/features/actions) in your Android Project. 
+
+Failing job sample https://github.com/hadjirulricky/github-actions-android-playground/tree/failing-job-sample
 
 ## Workflows
 This project contains one workflow which is [ci.yml](https://github.com/hadjirulricky/github-actions-android-playground/blob/master/.github/workflows/ci.yml). 
