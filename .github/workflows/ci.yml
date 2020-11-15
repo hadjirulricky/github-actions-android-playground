@@ -26,7 +26,7 @@ jobs:
           java-version: 1.8
       - name: Make gradlew executable
         run: chmod +x ./gradlew
-      - name: Run ktlint
+      - name: Run lint
         run: ./gradlew --no-daemon --stacktrace lintDebug
 
   unit-test:
