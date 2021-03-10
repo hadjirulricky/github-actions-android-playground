@@ -63,10 +63,8 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Setup Emulator
+      - name: Run UI test
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-
-      - name: Run UI test
-        run: ./gradlew --no-daemon --stacktrace connectedDebugAndroidTest
+          script: ./gradlew --no-daemon --stacktrace connectedDebugAndroidTest
