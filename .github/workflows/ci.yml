@@ -3,7 +3,25 @@ name: CI
 on: push
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Run Build
+        run: ./gradlew --no-daemon --stacktrace assembleDebug
+
   ktlint:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -21,6 +39,7 @@ jobs:
         run: ./gradlew --no-daemon --stacktrace ktlint
 
   lint:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -38,6 +57,7 @@ jobs:
         run: ./gradlew --no-daemon --stacktrace lintDebug
 
   unit-test:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -55,6 +75,7 @@ jobs:
         run: ./gradlew --no-daemon --stacktrace testDebugUnitTest
 
   android-test:
+    needs: [build]
     runs-on: macos-latest
     steps:
       - name: Checkout branch
